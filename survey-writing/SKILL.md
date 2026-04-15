@@ -88,6 +88,52 @@ use different terms for the same concept (e.g., "domain shift" vs. "distribution
 vs. "dataset bias"). A survey must establish a canonical term on first occurrence, note the
 variants, and use the canonical term consistently thereafter.
 
+### 1.7 No Citation Dump Tails
+
+Never end a paragraph with a sentence that lists additional works without synthesis. Common
+offending patterns include:
+
+(a) "Additional works extend this to X~\citep{A}, Y~\citep{B}, and Z~\citep{C}."
+(b) "Further efforts include~\citep{A, B, C, D}."
+(c) "The same paradigm has been applied to X, Y, Z, and W~\citep{...}."
+
+Pattern (c) is especially insidious because it disguises the dump with a thematic opening
+phrase while retaining the same enumeration structure. The test: if the sentence lists more
+than two domain applications separated by commas with per-item or grouped citations, it is
+a dump regardless of its opening phrase. Fix by either (1) merging citations into a nearby
+\citep{} call that already supports the claim, (2) compressing to a single short sentence
+under 20 words with all citations grouped and no per-item enumeration, or (3) deleting
+entirely if the works are tangential.
+
+### 1.8 No Intro-Closing Redundancy
+
+Within a subsubsection or paragraph group, the intro and closing must not restate the same
+claim. A common failure: the intro defines a method family and names its key advantage,
+then the closing repeats the advantage in different words. The fix: the intro defines what
+the family is and previews internal structure; the closing states limitations, open
+problems, or connections to adjacent sections. They serve different rhetorical functions
+and must contain different content. If you find yourself writing a closing that echoes the
+intro, delete the closing's first sentence and start directly with the limitation.
+
+### 1.9 Proportional Shell-to-Body Ratio
+
+When a subsubsection has intro and closing paragraphs wrapping body \paragraph{} entries,
+the shell (intro + closing) should not exceed 40% of total word count. If it does, either
+the body is too thin (add substance) or the shell is too thick (compress). A single-body
+subsubsection (only one \paragraph{}) almost always signals that either (a) the intro
+should be folded into the body, or (b) the body should be split into two \paragraph{}
+headings to justify the shell's existence.
+
+### 1.10 Demote Low-Distinction Papers
+
+Not every cited paper deserves a standalone sentence. Before giving a paper its own
+description, ask: does this paper's contribution differ from its neighbors in a way the
+reader needs to understand? If the answer is no (e.g., it is "an open-source platform"
+for the same paradigm, or it automates the same pipeline with a different implementation),
+demote it to a grouped citation attached to a neighbor. The "expand two, group the rest"
+pattern (Section 3.4) operationalizes this: expand the two most representative methods,
+then group remaining methods in merged \citep{} calls.
+
 ---
 
 ## 2. Survey Architecture
@@ -580,3 +626,131 @@ are flagged).
 would not change the reader's understanding.
 (15) If writing a single section in isolation, transition hooks to adjacent sections are
 present and assumptions about shared context are explicitly stated.
+(16) No paragraph ends with a citation dump tail (Rule 1.7). Search for "Additional
+works", "Further efforts", "Related approaches have been applied to", and any sentence
+listing 3+ domain applications with citations.
+(17) No subsubsection has intro-closing redundancy (Rule 1.8). Check that the first
+sentence of the closing does not paraphrase the intro.
+(18) Shell-to-body ratio (Rule 1.9): for each subsubsection, verify that intro + closing
+does not exceed 40% of total word count.
+(19) Performance numbers are reported consistently: either all representative methods get
+numbers, or none do (use a comparison table instead). Selective reporting looks like
+promotion.
+(20) Sibling \paragraph{} entries within the same \subsubsection{} should not differ by
+more than approximately 2x in word count. If they do, compress the longest or split it.
+(21) Cross-category synthesis paragraphs mention ALL categories, not a subset. If
+analyzing four families, all four must appear.
+(22) The word "Specifically" does not appear more than twice in any section. It is a
+crutch for "now I will describe one paper in detail" and should be replaced with varied
+transitions.
+
+---
+
+## 8. Anti-Patterns from Practice
+
+This section catalogs concrete failure modes observed during real survey revision. Each
+anti-pattern includes the symptom, why it fails, and the fix.
+
+### 8.1 The Disguised Dump
+
+**Symptom:** A paragraph ends with a sentence that replaces "Additional works..." with a
+thematic opening phrase but retains the same enumeration:
+  "The same paradigm has been extended to code-based scene construction via Blender
+  scripts~\citep{A}, diverse physical scene types including supermarkets and digital
+  replicas~\citep{B, C, D}, human behavior simulation~\citep{E}, and synthetic
+  environments for visual reasoning~\citep{F, G}."
+
+**Why it fails:** Swapping the opening phrase does not add synthesis. The reader still
+sees a comma-separated list of unrelated domains with no argument connecting them.
+
+**Fix:** Compress to one short claim with grouped citations: "Beyond indoor scenes, the
+same paradigm has been extended to diverse physical substrates and perceptual
+modalities~\citep{A, B, C, D, E, F, G}." Under 20 words, no per-domain enumeration.
+
+### 8.2 The Template Paragraph
+
+**Symptom:** Paragraph follows a rigid structure:
+  [1 topic sentence defining the category]
+  [Paper A description, 1 to 2 sentences]
+  [Paper B description, 1 to 2 sentences]
+  [Paper C description, 1 to 2 sentences]
+  ["Specifically, Paper D does..." detailed description]
+
+**Why it fails:** This is paper-by-paper organization wearing a topic-sentence disguise.
+The topic sentence provides a label, not an argument. Each paper is described
+independently without comparison.
+
+**Fix:** Restructure around a methodological tension or design question. For example,
+instead of listing four methods, frame the paragraph around "the central design tension
+is whether to tokenize observations or generate them in continuous space," then let papers
+appear as evidence for each side.
+
+### 8.3 The "Specifically" Crutch
+
+**Symptom:** Multiple paragraphs in the same section use "Specifically, [Paper X]
+does..." as a transition to a detailed example.
+
+**Why it fails:** When every paragraph uses the same transition, it becomes a tic rather
+than a rhetorical device. It signals "I am about to describe one paper in detail" rather
+than connecting the example to the argument.
+
+**Fix:** Replace with varied transitions that explain WHY this example matters:
+  "X exemplifies the minimal version of this paradigm: ..."
+  "The most systematic realization of this principle converts..."
+  "The challenge is best illustrated by X, which..."
+  Or simply delete "Specifically," and start with the paper name.
+
+### 8.4 The Overstuffed Single Paragraph
+
+**Symptom:** A subsubsection has only one \paragraph{} heading, sandwiched between a
+long intro and a long closing. The single paragraph internally covers 2 to 3 distinct
+methodological threads without structure.
+
+**Why it fails:** The intro and closing shell becomes disproportionate. The single
+paragraph tries to do too much, resulting in either paper-by-paper listing or rapid
+topic switching.
+
+**Fix:** Identify the distinct methodological threads within the paragraph and split into
+two \paragraph{} headings. For example, if the paragraph covers both "static simulation"
+and "co-evolutionary simulation," split them. Each \paragraph{} should have one clear
+claim.
+
+### 8.5 Selective Performance Promotion
+
+**Symptom:** Some papers get specific numbers ("achieves 51% on SWE-Bench Verified",
+"1.46 mean human-normalized score") while most get only qualitative claims. The
+selection of which papers get numbers appears arbitrary.
+
+**Why it fails:** It makes the survey look like it is promoting certain papers over
+others. Reviewers will notice and question the authors' neutrality.
+
+**Fix:** Choose one strategy and apply consistently: (a) remove all specific numbers
+from prose and state qualitative claims only, reserving numbers for a comparison table,
+or (b) report numbers for ALL representative methods in each paragraph. Option (a) is
+usually simpler and preferred.
+
+### 8.6 The Incomplete Cross-Category Synthesis
+
+**Symptom:** A cross-category analysis paragraph discusses three out of four categories,
+omitting one because its fidelity challenge is different or less obvious.
+
+**Why it fails:** The reader expects comprehensive coverage in a synthesis paragraph. An
+omission suggests the author forgot or could not find anything to say.
+
+**Fix:** Every category must appear. If a category's challenge is different in kind (e.g.,
+programmatic environments have execution fidelity rather than physical fidelity), state
+this difference explicitly rather than omitting the category.
+
+### 8.7 Framing Multiple Methods as a List vs. as Strategies
+
+**Symptom:** A paragraph presents three methods sequentially:
+  "Method A does X. Method B does Y. Method C also provides Z."
+
+**Why it fails:** The reader sees a list, not an argument. The methods may actually
+represent complementary strategies for the same problem, but the sequential presentation
+hides this structure.
+
+**Fix:** Frame as strategies for a shared challenge: "Two complementary strategies have
+emerged. The first is [strategy name]: [methods A, B as evidence]. The second is
+[strategy name]: [method C as evidence]. [Optional: cross-cutting enabler that serves
+both strategies.]" This gives the reader a conceptual framework, not just a list.
