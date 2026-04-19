@@ -520,9 +520,11 @@ together. When papers play different roles (one proposes, another refines, a thi
 critiques), indicate the role: "originally proposed by~\citet{A}, later refined
 by~\citet{B}, and challenged by~\citet{C} who showed..."
 
-(c) **Citation format conventions.** Use \citet{} when the author name is part of the
-sentence ("Zhang et al.~\citet{...} show that..."). Use \citep{} for parenthetical
-citations at the end of a clause. Never start a sentence with a parenthetical citation.
+(c) **Citation commands.** Use \citep{} by default. Use \cite{} only when the citation
+appears as the grammatical subject at the start of a sentence. Examples:
+\citep{chen2018sequential} renders as "(Chen et al., 2018)" and serves a parenthetical
+role. \cite{chen2018sequential} renders as "Chen et al. (2018)" and serves as the
+sentence subject. Never start a sentence with a parenthetical \citep{} citation.
 
 ### 5.3 Terminology Mapping
 
@@ -643,6 +645,22 @@ analyzing four families, all four must appear.
 (22) The word "Specifically" does not appear more than twice in any section. It is a
 crutch for "now I will describe one paper in detail" and should be replaced with varied
 transitions.
+(23) Each citation points to the canonical published version. Conference version is
+preferred over workshop, workshop over arXiv (Rule 9.1).
+(24) \citep{} is used for parenthetical citations; \cite{} is used only when the
+citation is the grammatical subject at the start of a sentence (Rule 9.2).
+(25) main.bib entries are grouped by section with comment headers of the form
+"% ====================== Sec X.Y Section Title References" (Rule 9.3).
+(26) No two adjacent sentences restate the same fact, comparison, or judgment in
+different words (Rule 10.2).
+(27) Paragraphs are drafted only after the relevant papers have been read and a
+taxonomy extracted, not from titles and abstracts alone (Rule 11.1).
+(28) Shared patterns are stated before individual papers are named (Rule 12.1). No
+paragraph lists papers first and derives the pattern afterward.
+(29) No forced category: umbrella labels like "other approaches" do not appear. When
+works are too heterogeneous, they are presented individually (Rule 12.2).
+(30) GPTZero (or an equivalent detector) has been run on each drafted section and the
+AI-probability score is low.
 
 ---
 
@@ -754,3 +772,162 @@ hides this structure.
 emerged. The first is [strategy name]: [methods A, B as evidence]. The second is
 [strategy name]: [method C as evidence]. [Optional: cross-cutting enabler that serves
 both strategies.]" This gives the reader a conceptual framework, not just a list.
+
+---
+
+## 9. Citation Workflow
+
+### 9.1 Locating the Canonical Version
+
+Before adding any citation, search for the paper title on Google Scholar and identify
+the canonical publication venue. Prioritize conference > workshop > arXiv. Many papers
+appear in multiple versions across the three tiers; always cite the highest-tier
+published version to prevent duplicate bib entries under different keys.
+
+When only an arXiv preprint exists, use the arXiv entry and monitor for venue
+acceptance. When both a workshop and a conference version exist, cite the conference
+version. When a journal extension exists and materially expands the conference version,
+prefer the journal version; otherwise cite the conference version.
+
+### 9.2 Citation Command Rules
+
+Use \citep{} by default. Use \cite{} only when the citation appears as the grammatical
+subject at the start of a sentence.
+
+Examples:
+(a) Parenthetical: "Sequential reasoning improves planning accuracy
+\citep{chen2018sequential}." Renders as "(Chen et al., 2018)".
+(b) Subject: "\cite{chen2018sequential} showed that sequential reasoning improves
+planning accuracy." Renders as "Chen et al. (2018)".
+
+### 9.3 Bib File Organization
+
+Group entries in main.bib by the section in which they are cited, not by alphabetical
+order or insertion order. Place a comment header before each group using this format:
+
+  % ====================== Sec 2.3 User/Agent Memory Taxonomy References
+
+Within each group, order entries by first appearance in the section. This organization
+makes it easy to locate stale entries during revision and to spot duplicate citations
+across sections (the same key appearing under two headers signals that one section
+should cross-reference the other rather than re-cite).
+
+When a paper is cited in multiple sections, place it under the section where it first
+appears and note the cross-reference in a trailing comment:
+
+  % (also cited in Sec 3.2, Sec 4.1)
+
+---
+
+## 10. AI Tone Avoidance
+
+Surveys produced with AI assistance often exhibit stylistic tells that reviewers and
+readers recognize. The following rules eliminate the most common tells.
+
+### 10.1 Punctuation and Wording
+
+(a) Never use em dashes. See Rule 1.1 for full coverage.
+
+(b) Prefer simple, precise wording. Replace vague intensifiers ("significantly",
+"substantially", "remarkably") with concrete quantities or delete them.
+
+(c) Keep sentences concise. Cap at 35 words (Rule 5.4c). Long sentences in survey prose
+almost always indicate two ideas that need separation.
+
+### 10.2 Information Density
+
+Every sentence must contribute new information. Adjacent sentences that restate the
+same point in different words are the strongest tell of AI-generated prose. Before
+submitting, read each paragraph and flag any sentence whose deletion would not remove
+a fact, comparison, or judgment. Delete flagged sentences.
+
+Common redundancy patterns to remove:
+(a) Topic sentence followed by a restatement of the topic sentence in different words.
+(b) Closing sentence that paraphrases the opening sentence.
+(c) "Furthermore" or "Moreover" sentences that add no new fact, only emphasis.
+
+### 10.3 AI Detection Testing
+
+After drafting each section, run the prose through GPTZero (https://gptzero.me/) and
+target a low AI-probability score. Based on empirical comparison across detectors,
+GPTZero is the strictest; passing GPTZero generally means passing others. When a
+paragraph scores high, the most common causes are (1) uniform sentence length, (2)
+"however/moreover/furthermore" transitions in consecutive sentences, and (3) topic
+sentences that preview the paragraph in a templated way. Fix by varying sentence
+length, replacing templated transitions with specific logical connectors (Section 5.5),
+and letting paragraphs open with evidence rather than a meta-preview.
+
+---
+
+## 11. Pre-Drafting and Distillation
+
+### 11.1 Read Before Drafting
+
+Before drafting any section or subsection, read the relevant papers and extract a
+clear taxonomy and conceptual roadmap. AI assistance is encouraged during this
+distillation step, but the taxonomy must reflect genuine reading, not inferred
+structure from titles and abstracts. A taxonomy built from abstracts alone produces
+categories that fragment along surface cues (architecture names, application domains)
+rather than along the principled axes required by Rule 3.3a.
+
+### 11.2 Cite Related Works Together
+
+When multiple papers share a motivation or methodology, cite them together and lead
+with the shared pattern. Do not give each paper its own sentence when the sentences
+would describe variations on the same idea. See Rule 5.2a (claim first, cite after)
+and Rule 3.4 (expand two, group the rest).
+
+### 11.3 Deeper Analysis for Representative Works
+
+Representative works warrant deeper analysis than peripheral works. A paper qualifies
+as representative when it meets one of the following criteria:
+(a) 100+ GitHub stars, indicating adoption beyond the author group.
+(b) 50+ academic citations, indicating influence on subsequent work.
+(c) It introduces a technical framework that later works explicitly build upon.
+
+For representative works, describe the technical framework in enough detail that the
+reader can identify the common patterns that successor methods inherit. For
+non-representative works, a grouped citation or one-sentence mention is sufficient.
+
+---
+
+## 12. Writing Principles for Synthesis
+
+### 12.1 Summarize First, Then Give Examples
+
+When several papers share a common idea, extract the shared pattern and state it in a
+single sentence before naming any individual paper. Use one or two representative
+papers as examples of the pattern. Never list papers first and derive the pattern
+afterward; this reads as a paper list with a retrofitted topic sentence.
+
+Bad: "A uses diffusion for scene layout. B uses diffusion for agent trajectories. C
+uses diffusion for camera paths. These methods all apply diffusion models."
+
+Good: "Diffusion models have been applied across the scene-generation pipeline, from
+layout \citep{A} to agent trajectories \citep{B} and camera paths \citep{C}, unified by
+the treatment of generation as iterative denoising from a learned prior."
+
+### 12.2 Do Not Force Categories
+
+When works are too heterogeneous to share a common pattern, do not force them into a
+category. Introduce them separately and briefly explain each method's main idea and
+contribution. A forced category produces vague umbrella terms ("other approaches",
+"miscellaneous methods") that signal taxonomic weakness to the reader.
+
+The test: if the umbrella sentence could apply to most papers in the field, the
+category is too loose. Either find a tighter axis or present the works as individual
+contributions without a shared label.
+
+### 12.3 Light Analysis to Connect Papers
+
+Do not list methods without judgment. Add brief analytical connections: what previous
+work did, what problems remained, how later work addressed those problems. The logical
+template is:
+
+  [Early work / baseline approach] \citep{A, B} established [technique X] but suffered
+  from [specific limitation]. \citet{C} identified [root cause of limitation] and
+  proposed [refinement]. Subsequent work extended this line to [extension] \citep{D, E}.
+
+This template converts a paper list into a narrative arc. Use it when the literature
+has a clear developmental trajectory. When no such trajectory exists, use thematic
+grouping instead (Rule 3.4b).
