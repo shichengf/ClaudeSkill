@@ -298,6 +298,8 @@ Whenever a task creates, converts, revises, or reviews a figure, plot, or table,
 
 Apply four gates in order: (1) choose the correct representation, (2) preserve the intended claim and visual hierarchy, (3) verify geometry and legibility at the final paper size, and (4) synchronize the visual with its caption, accessibility description, surrounding prose, and source data. A standalone high-resolution render is not sufficient. Compile the paper and inspect the rendered page at its actual placement size before declaring the work complete.
 
+For visual styling, match color density inversely to information density. Use a restrained palette for sparse diagrams and predominantly black, white, and gray for dense figures, with at most one accent color. Prefer sentence case or title case inside figures; reserve all capitals for established acronyms and short conventional markers.
+
 ---
 
 ## 4. Language and Style

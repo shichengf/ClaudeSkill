@@ -34,6 +34,8 @@ First state the artifact's communicative job in one sentence. If that sentence i
 
 (5) For multi-panel figures, make panel boundaries and labels explicit. The caption and prose must use the same panel order and names as the visual.
 
+(6) Match color density inversely to information density. A sparse conceptual figure may use several restrained colors to distinguish a few roles. A dense figure with many nodes, labels, rows, or connectors must be predominantly black, white, and gray, with at most one accent color for the primary claim. Do not assign a different saturated color to every component when position, shape, or labels already distinguish them.
+
 ## 3. Use Unambiguous Visual Grammar
 
 (1) Every icon must have a conventional, immediately interpretable meaning. If an icon can plausibly mean several things, replace it with a labeled card or pair the icon with a short label. Decorative shields, loops, gears, and similar symbols are unacceptable when they do not encode a precise operation.
@@ -47,6 +49,8 @@ First state the artifact's communicative job in one sentence. If that sentence i
 (5) Use bidirectional arrows only for genuinely bidirectional interaction. Use separate directed arrows when the two directions carry different meanings.
 
 (6) Label operations with verbs and entities with nouns. Keep terminology and capitalization identical to the main text.
+
+(7) Use sentence case or title case for figure text. Avoid all-capital labels because they create uniform visual emphasis and resemble automatically generated presentation graphics. Reserve all capitals for established acronyms, model names that require them, or conventional markers of at most three short words.
 
 ## 4. Enforce Geometric and Typographic Integrity
 
@@ -149,3 +153,5 @@ Do not declare a visual complete if any of the following remains:
 (7) A table contains mostly prose, combines unrelated taxonomies, or reports numbers that the argument never uses.
 
 (8) A figure or table has changed but its caption, accessibility description, or surrounding prose still describes the old version.
+
+(9) A dense figure uses several competing accent colors, or ordinary labels are rendered in all capitals without a conventional reason.
