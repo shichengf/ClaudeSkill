@@ -1,0 +1,4 @@
+interface:
+  display_name: "Academic Self-Check"
+  short_description: "Audit papers for consistency and submission readiness"
+  default_prompt: "Use $academic-self-check to audit this paper for claim support, consistency, citations, visuals, and submission defects."

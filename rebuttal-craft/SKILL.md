@@ -22,6 +22,10 @@ This skill assumes the baseline academic-writing skill is active for prose
 formatting, notation discipline, and self-consistency. Layer this skill on top
 when working on rebuttals.
 
+After the response is drafted, use the academic-self-check skill to verify
+cross-reviewer consistency, numerical agreement with the manuscript, citation
+support, and promised revisions.
+
 ---
 
 ## 1. Strategic Principles

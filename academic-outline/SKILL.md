@@ -1,3 +1,9 @@
+---
+name: academic-outline
+description: >
+  Create structural outlines for conference papers, workshop papers, research proposals, grants, and thesis chapters without drafting the final prose. Use when the user asks for an outline, paper structure, section plan, paragraph map, argument flow, page allocation, or a compressed overview of an academic manuscript. Use academic-writing after the structure is approved and academic-self-check for the final manuscript audit.
+---
+
 # Academic Outline Skill
 
 When the user asks for an academic outline, follow these steps:

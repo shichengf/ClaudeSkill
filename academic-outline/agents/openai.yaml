@@ -1,0 +1,4 @@
+interface:
+  display_name: "Academic Outline"
+  short_description: "Plan academic arguments and section structure"
+  default_prompt: "Use $academic-outline to create a section-by-section argument plan without drafting the final prose."

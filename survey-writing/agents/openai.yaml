@@ -1,0 +1,4 @@
+interface:
+  display_name: "Survey Writing"
+  short_description: "Synthesize literature into a principled survey"
+  default_prompt: "Use $survey-writing to organize this literature into a taxonomy and write evidence-based cross-paper synthesis."

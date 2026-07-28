@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rebuttal Craft"
+  short_description: "Write concise, evidence-led reviewer responses"
+  default_prompt: "Use $rebuttal-craft to prepare a concise author response that addresses each reviewer concern with evidence and concrete revisions."
