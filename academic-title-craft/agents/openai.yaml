@@ -1,0 +1,4 @@
+interface:
+  display_name: "Academic Title Craft"
+  short_description: "Craft and audit precise ML paper titles"
+  default_prompt: "Use $academic-title-craft to propose and audit titles for my paper from its central claim and evidence."
