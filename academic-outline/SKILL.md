@@ -6,9 +6,11 @@ description: >
 
 # Academic Outline Skill
 
-When the user asks for an academic outline, follow these steps:
+Use the available context to plan the requested scope. The templates and sentence counts below are optional starting points, not quotas. Preserve an effective existing structure and omit sections that do not serve the argument.
 
-1. **Identify the document type** from the user's request (conference paper, workshop paper, proposal/grant, thesis chapter). If unclear, ask.
+When useful:
+
+1. **Identify the document type** from the user's request (conference paper, workshop paper, proposal/grant, thesis chapter). Infer it from context where possible; ask only when the distinction changes the outline.
 2. **Identify the page limit or venue** if mentioned (e.g., "8-page NeurIPS paper", "4-page workshop", "NSF proposal"). This determines scale.
 3. **Ask the user for a 2-3 sentence summary** of their work: what problem, what method, what result. If already provided in conversation, use it directly.
 4. **Generate the outline** following the templates below, adapting sentence counts and section presence to the document type and page limit.
@@ -187,9 +189,9 @@ After generating the base outline, tailor it:
 
 ------
 
-## Checklist (present at the end of every outline)
+## Optional review questions
 
-After the outline, provide a short checklist:
+Use these to check the outline. Include them in the response only when they help the user:
 
 -  Does the introduction clearly state the gap?
 -  Is each contribution backed by an experiment or analysis?

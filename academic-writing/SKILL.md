@@ -1,18 +1,24 @@
 ---
 name: academic-writing
 description: >
-  Draft and revise research-paper prose, captions, tables, figures, and appendices for ML, AI, and adjacent technical venues. Use while writing or restructuring a regular conference or journal paper, improving argument flow, translating evidence into claims, or synchronizing prose with a changed visual. Do not use this as the final submission audit; use academic-self-check after drafting. For surveys use survey-writing, for outlines use academic-outline, and for reviewer responses use rebuttal-craft.
+  Draft and revise research-paper prose, captions, tables, figures, and appendices for ML, AI, and adjacent technical venues. Use while writing or restructuring a regular conference or journal paper, improving argument flow, translating evidence into claims, or synchronizing prose with a changed visual. Use academic-self-check when a full review is requested or a substantial revision warrants one. For surveys use survey-writing, for outlines use academic-outline, and for reviewer responses use rebuttal-craft.
 ---
 
 # Academic Writing
 
 Write evidence-led research prose. Optimize for a reader who wants to understand the problem, the contribution, how the system works, what the experiments show, and where the evidence stops. Prefer a clear explanation over compressed terminology.
 
-## Working Sequence
+## Scope and judgment
+
+Scale the workflow to the requested edit. For a local revision, use the established context, inspect the passage and its dependencies, and edit directly. Revisit the paper-wide argument only when it changes. The guidance below is a set of decision aids, not a mandatory sequence or a required response format.
+
+Give secondary results space in proportion to their role. A baseline failure may need only a brief observation and interpretation in the main text, with diagnostic details in the appendix. Keep operational audit records out of the scientific narrative unless they change its interpretation. State material uncertainty where it matters without repeating the same caveat throughout the paper.
+
+## Writing guidance
 
 ### 1. Establish the paper contract
 
-Before drafting, identify:
+For a new paper or substantial reframing, establish what is not already clear from the manuscript and conversation:
 
 1. the paper's central problem and one-sentence answer;
 2. the two to four contribution claims;
@@ -24,9 +30,9 @@ Inspect adjacent sections and source artifacts before rewriting. If a requested 
 
 ### 2. Give each section one job
 
-Write the section's purpose in one sentence before editing it. Give every paragraph one primary function: establish a problem, explain a mechanism, report evidence, interpret a result, or connect two ideas. Merge paragraphs that merely restate one another. Split paragraphs that change purpose midway.
+Use the section's purpose to decide what belongs there; no written planning artifact is needed for a local edit. Give every paragraph one primary function: establish a problem, explain a mechanism, report evidence, interpret a result, or connect two ideas. Merge paragraphs that merely restate one another. Split paragraphs that change purpose midway.
 
-Load [section-blueprints.md](references/section-blueprints.md) when drafting or restructuring the abstract, introduction, method, experiments, related work, limitations, or conclusion.
+Consult [section-blueprints.md](references/section-blueprints.md) when a structural template would help with the abstract, introduction, method, experiments, related work, limitations, or conclusion.
 
 ### 3. Lead with meaning
 
@@ -58,7 +64,7 @@ Do not turn a capability into a demonstrated outcome. An interface for process r
 
 ### 5. Report results as arguments
 
-For every experiment, write:
+Use the following questions to decide what the reader needs. Do not force each into a separate sentence or repeat setup already established:
 
 1. the question;
 2. the comparison or measurement;
@@ -116,7 +122,7 @@ When the paper's emphasis changes, update the title, abstract, introduction, con
 
 ### Data or model-panel change
 
-Treat one changed result as a dependency update. Recompute every aggregate and inspect the abstract, result prose, tables, plots, captions, appendix tables, rankings, case studies, and conclusion. Never patch only the nearest table.
+Trace a changed result to affected aggregates, claims, tables, and plots, and update those dependencies together. Recompute what depends on the change; broaden the audit only when inconsistencies or a wider revision justify it.
 
 ### Figure change
 
@@ -130,4 +136,4 @@ After moving content between the main paper and appendix, repair transitions, re
 
 Compile or render the paper after substantive edits. Inspect the relevant pages, not only the log. Fix obvious overflow, overlap, stranded headings, one-word terminal lines, large unexplained whitespace, and figures separated from their analysis.
 
-Then invoke `academic-self-check` for the independent full-paper audit. Do not duplicate its checklist during drafting.
+Check the changed passage and its dependencies. Use `academic-self-check` for a requested full review, a substantial revision, or a concrete unresolved concern. A local edit does not require a full-paper audit or a separate agent.

@@ -1,7 +1,7 @@
 ---
 name: academic-self-check
 description: >
-  Audit a completed or near-complete academic manuscript for unsupported claims, numerical drift, terminology and notation inconsistencies, citation problems, figure and table defects, LaTeX layout issues, anonymity risks, and submission readiness. Use after drafting, after a major result or figure update, before committing a paper revision, or when the user asks for a full-paper review, final check, consistency audit, or reviewer-style inspection. This skill diagnoses first and edits only when the user authorizes edits.
+  Audit a completed or near-complete academic manuscript for unsupported claims, numerical drift, terminology and notation inconsistencies, citation problems, figure and table defects, LaTeX layout issues, anonymity risks, and submission readiness. Use when a major revision warrants a broad audit, before submission, or when the user asks for a full-paper review, final check, consistency audit, or reviewer-style inspection. This skill diagnoses first and edits only when the user authorizes edits.
 ---
 
 # Academic Self-Check
@@ -15,6 +15,10 @@ Use **report-only mode** when the user asks to review, inspect, check, diagnose,
 Use **fix mode** when the user asks to correct, revise, clean, or apply the findings. Preserve valid content and unrelated local changes. For judgment calls, explain the tradeoff before making a material rewrite.
 
 If the request is ambiguous, perform the audit and report proposed changes rather than editing.
+
+## Scale the review
+
+Match the review to the request. A focused check covers the changed material and its actual dependencies. A full-paper audit covers the manuscript as a whole. The categories below guide attention rather than require every check on every invocation. Report only findings and verification relevant to the requested scope, and stop when the material issues are resolved. Independent review is a fresh assessment of the evidence, not an automatic requirement to spawn another agent.
 
 ## Audit Workflow
 
@@ -50,7 +54,7 @@ Check the same value everywhere it appears:
 6. appendix;
 7. conclusion.
 
-When a model, task, or rerun has changed, assume every aggregate is stale until verified. Do not accept a successful compilation as evidence of data consistency.
+When a model, task, or rerun changes, trace the aggregates and claims that depend on it and verify those. Do not accept a successful compilation as evidence of data consistency.
 
 ### 4. Audit terminology, notation, and responsibility
 
@@ -60,7 +64,7 @@ Watch especially for prose that credits a model for deterministic work performed
 
 ### 5. Audit structure and readability
 
-For each section and paragraph, write a short purpose label. Flag duplicate sections, late definitions, results separated from their figures, validation detail that overwhelms the scientific contribution, and conclusions collected far from the evidence they interpret.
+Assess each relevant section and paragraph by its purpose without requiring a written label. Flag duplicate sections, late definitions, results separated from their figures, validation detail that overwhelms the scientific contribution, and conclusions collected far from the evidence they interpret.
 
 Search for:
 
@@ -114,12 +118,7 @@ Report findings in descending severity:
 
 For each finding, give the location, observed evidence, why it matters, and the smallest safe correction. Separate confirmed defects from judgment calls.
 
-End with:
-
-1. what was verified;
-2. what remains uncertain;
-3. whether files were modified;
-4. what should happen before submission.
+Summarize what was checked and any material uncertainty. Mention edits and submission blockers when relevant. Do not force a fixed checklist into the response to a small review.
 
 Load [full-paper-checklist.md](references/full-paper-checklist.md) for a comprehensive audit. Load [audit-examples.md](references/audit-examples.md) when classifying a subtle inconsistency or deciding the minimum safe fix.
 
