@@ -17,6 +17,8 @@ When useful:
 
 ------
 
+For empirical papers, organize the outline around what the reader will discover, not a sequence of defenses of the design. Let questions motivate comparisons and let the observations carry the story. Reserve main-text space for readable explanations and the findings needed to understand the contribution. Place detailed protocols, edge cases, and extended reviewer-facing qualifications in the appendix, while retaining material limitations in the main text. Proof-oriented structure remains appropriate for actual theoretical results.
+
 ## Output Format
 
 The outline should be a structured markdown document. For each section and subsection:

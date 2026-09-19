@@ -14,6 +14,24 @@ Scale the workflow to the requested edit. For a local revision, use the establis
 
 Give secondary results space in proportion to their role. A baseline failure may need only a brief observation and interpretation in the main text, with diagnostic details in the appendix. Keep operational audit records out of the scientific narrative unless they change its interpretation. State material uncertainty where it matters without repeating the same caveat throughout the paper.
 
+## Discovery-led empirical writing
+
+For empirical method papers, write to show what the authors discovered. Do not organize every paragraph as a proof that the method is reasonable. Build interest through the scientific question, the comparison, the observed pattern, and what the pattern suggests. Use a curious, explanatory voice without manufactured suspense, promotional language, or a page full of rhetorical questions.
+
+Prefer concrete findings such as "We find that the simpler rule performs better" over recurring claims such as "These results validate our design." Reserve "prove" and "guarantee" for actual formal results. Keep observations, tentative explanations, and causal findings distinct. This preference does not replace proof-oriented exposition in a theoretical paper or a genuine theorem section.
+
+## ExRSI reference style
+
+Use the author's supplied ExRSI/RSIAgent paper as a prose exemplar. For paragraph drafting or substantive prose revision, read [the ExRSI prose guide](references/exrsi-prose-guide.md), which distills its sentence connections, component explanations, and result narration with original transfer examples. Lead from a concrete situation, keep subjects and actions visible, and let each sentence carry a known object into the next step. Use direct statements as well as questions; discovery-led writing does not need repeated rhetorical openings. Adopt these explanatory habits selectively while preserving the manuscript's evidence and terminology.
+
+## Main text for readers, appendix for audit
+
+The author's working principle is: the main text is for human readers, and the appendix should also withstand AI-assisted review. Keep the main paper fluent and easy to follow, with clear ideas, familiar words, straightforward sentences, and ordinary punctuation. Avoid complicated sentence structures, stylistic dashes, semicolon chains, and repeated defensive qualifications. State the material boundary where the reader needs it, then continue the story.
+
+Use the appendix for precise protocols, implementation edge cases, alternative interpretations, reproducibility details, and fuller limitations. It may be more technical and defensive when that resolves a concrete ambiguity. Keep it organized and evidence-based rather than adding speculative objections or boilerplate for its own sake. Keep details needed to interpret a headline result in the main text. Never hide a material limitation or invent an experiment, guarantee, configuration, or diagnostic to satisfy a reviewer.
+
+Keep a detail when it helps readers understand the method, assess a central result, or reproduce a key experiment. The appendix need not preempt every hypothetical failure mode. Omit repeated disclaimers and speculation about unobserved problems. Preserve useful explanations grounded in observed behavior or cited prior results, including baseline diagnostics that clarify the comparison.
+
 ## Writing guidance
 
 ### 1. Establish the paper contract
@@ -62,7 +80,7 @@ Use distinct language for distinct support:
 
 Do not turn a capability into a demonstrated outcome. An interface for process rewards does not establish successful reinforcement learning. A multiagent environment does not by itself establish strategic multiagent evaluation. A public repository must not be described as available until it is actually accessible.
 
-### 5. Report results as arguments
+### 5. Present results as discoveries
 
 Use the following questions to decide what the reader needs. Do not force each into a separate sentence or repeat setup already established:
 
@@ -70,9 +88,9 @@ Use the following questions to decide what the reader needs. Do not force each i
 2. the comparison or measurement;
 3. the minimum numbers needed to support the conclusion;
 4. the conclusion;
-5. the boundary of that conclusion.
+5. any boundary that materially changes the interpretation, stated once in the appropriate place.
 
-Lead result paragraphs with the pattern, not a list of numbers. Use numbers to support the pattern. Distinguish an interesting observation from a controlled causal finding.
+Lead result paragraphs with the observed pattern and use the few numbers needed to make it concrete. Explain what is interesting about the finding. Avoid ending every paragraph with another assertion that the design is justified. Distinguish an interesting observation from a controlled causal finding.
 
 ### 6. Keep terminology and notation economical
 

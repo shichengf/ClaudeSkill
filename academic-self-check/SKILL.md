@@ -20,6 +20,8 @@ If the request is ambiguous, perform the audit and report proposed changes rathe
 
 Match the review to the request. A focused check covers the changed material and its actual dependencies. A full-paper audit covers the manuscript as a whole. The categories below guide attention rather than require every check on every invocation. Report only findings and verification relevant to the requested scope, and stop when the material issues are resolved. Independent review is a fresh assessment of the evidence, not an automatic requirement to spawn another agent.
 
+When reviewing empirical prose, check whether it presents discoveries clearly or repeatedly argues that the design is justified. Protect simple sentences and the human reader's narrative. Consolidate redundant defensive caveats, and place detailed protocol and edge-case discussion in the appendix when it is not needed to interpret the main result. Do not remove material uncertainty or demand a new experiment solely to make every paragraph look like a proof.
+
 ## Audit Workflow
 
 ### 1. Establish scope
