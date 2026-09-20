@@ -1,123 +1,101 @@
-# Writing Examples
+# Prose and original transfer examples
 
-Use these examples as patterns, not text to copy. Preserve the manuscript's terminology and evidence.
+These examples are newly written. They illustrate habits found across the reference corpus and are not quotations to reuse indiscriminately.
 
-## Explain the system before listing internals
+## Connect sentences through the thing being explained
 
-Weak:
+Keep one object visible as it changes or moves. Introduce it, describe an operation on it, then describe the resulting information or behavior.
 
-> The runtime binds identity, public references, replies, and idempotency; the platform mediates discovery, matching, negotiation, settlement, and governance; and the World maintains lifecycle state.
+Dense: "The corpus-based entity-pair reward construction pipeline facilitates localized policy optimization."
 
-Better:
+Clear: "The extractor identifies an entity pair in each sentence. We query its co-occurrence in Wikipedia and convert the count into a sentence reward. Tokens in that sentence receive the local feedback during training."
 
-> Agents communicate through the protocol, while the platform checks whether each request may proceed. Accepted actions update the shared World.
+This is the move used when the agent papers carry a subgoal through execution and verification, or when CD-LAM carries a representation through successive training stages. The scientific procedure must come from the current manuscript.
 
-Why: the revision gives the reader the division of responsibility before implementation detail.
+## Use concrete subjects and verbs
 
-## Connect an example to the main contribution
+Useful verbs describe work: receives, stores, extracts, selects, compares, returns, updates, removes, retains, rises, falls, improves. A model, component, input, or measurement is often a better subject than "the implementation," "the effectiveness," or "the utilization."
 
-Weak:
+Dense: "The implementation of an outcome-grounded consolidation procedure enables the enhancement of reusable knowledge."
 
-> The exchange is valid only if it is authorized, replayable, linked, idempotent, and auditable.
+Clear: "After verification, the actor updates memory with the experience that later tasks can reuse."
 
-Better:
+Do not merely replace a technical term with a longer phrase. Keep terms that name the actual scientific distinction, and explain them at first use.
 
-> The Buyer and Merchant each act for a different person and may negotiate with several counterparties. The example shows how their agents reach one transaction through the shared market.
+## Give a component a purpose before its machinery
 
-Why: use the example to teach the two-sided environment if that is the main claim. Move audit detail to the mechanism or evaluation section.
+Start with the question making the component useful, then explain how it works. A result can also make the purpose apparent without an explicit "to address" sentence.
 
-## Avoid overstating record coverage
+Example: "A response-level score treats every sentence alike. CorVer adds a local reward so that sentences within the same response can receive different feedback."
 
-Weak:
+Next describe the actual mapping and normalization. Do not introduce every symbol and hyperparameter before readers know what is being computed.
 
-> Every evaluated decision is linked to an ordered commit and resulting state delta.
+## Make transitions carry an argument
 
-Better:
+Use transitions to mark a relationship, not decorate every paragraph.
 
-> Every evaluated decision is linked to its actor and validation outcome. Accepted state-changing decisions are also linked to their commits and resulting state changes.
+- "We next examine ..." changes the experimental question.
+- "The same ..." carries an established signal or mechanism into a new use.
+- "This suggests ..." introduces an interpretation of the preceding observation.
+- "In these runs ..." bounds an empirical statement when the boundary matters.
+- "After ..." locates an operation in the actual procedure.
 
-Why: rejected, read-only, and abstaining decisions need not produce commits.
+Avoid beginning every paragraph with "Building on this," "Importantly," or "Furthermore." Prefer a concrete link: "The retained pair defines the query" or "A3 keeps the signal but changes where it is assigned."
 
-## Turn numbers into a finding
+## Keep rhythm without making prose choppy
 
-Weak:
+Mix explanatory sentences with shorter statements naming a contrast or result. Use longer sentences when their clauses express one clear relationship. Split when a sentence changes subject repeatedly, nests conditions, or hides the main action behind a long parenthesis.
 
-> Model A scores 82.2, Model B scores 76.1, and Model C scores 74.6.
+Dense: "From the extracted triplets, we retain the first valid one (nonempty, non-pronominal entities forming a query with at least two distinct content terms), discarding the relation since only the pair is used."
 
-Better:
+Clear: "We retain the first valid triplet and use its head and tail as the entity pair. A valid pair has nonempty, non-pronominal entities whose content words form a query with at least two distinct terms. The relation is not included in the query."
 
-> Performance differs most on Buyer tasks rather than Merchant tasks. Model A's overall advantage is concentrated in the families that require the agent to continue through a staged transaction.
+This preserves the rule. Whether the extra sentence helps depends on paragraph density and available space.
 
-Why: the prose states the pattern. The table supplies the complete numbers.
+## Explain a finding without proving the design
 
-## Distinguish observation from explanation
+Defensive: "These ablations validate the effectiveness and necessity of our proposed token-level alignment."
 
-Weak:
+Empirical: "A3 keeps the corpus signal but assigns it as one response score. Accuracy falls on all five benchmarks, suggesting that local assignment contributes alongside the signal itself."
 
-> Safety training makes larger models reject the task.
+The comparison supplies the evidence. Avoid universal necessity for an empirical ablation. Equally, avoid weakening every measured fact with "may possibly": report the observation directly, then calibrate its explanation.
 
-Better:
+## Tell the reader what differs across conditions
 
-> Several stronger models stop early more often, while the smaller model more often attempts the next step. This pattern may reflect conservative post-training, but the experiment does not isolate that cause.
+Inventory: "A1 decreases accuracy. A2 decreases accuracy. A3 decreases accuracy."
 
-Why: behavior is observed; the cause is a hypothesis.
+Connected: "Both reward sources contribute, but their effects differ across datasets. Removing answer-level supervision produces the largest drop on some benchmarks, while removing corpus feedback costs more on others. Averaging the corpus signal into one response score also reduces accuracy."
 
-## Describe related work through a boundary
+Use the exact datasets and numbers when they matter. Do not replace a necessary comparison with vague praise.
 
-Weak:
+## Make qualifications local
 
-> Work A supports interoperability. Work B supports payments. Work C studies marketplaces.
+Heavy: "This result is only a point estimate, not a proof, and cannot establish that the method is universally superior."
 
-Better:
+Proportionate: "CorVer and FSPO are close on this model, with a 0.05-point difference in macro accuracy."
 
-> Existing protocols standardize deployment and payment interactions, while marketplace environments study agent behavior. Our setting combines a two-sided market with execution records that connect each decision to its transaction outcome.
+Keep the single-run protocol in setup if that is the actual procedure. Repeated uncertainty language obscures the observation without adding evidence. A materially incomparable baseline still needs an explicit condition.
 
-Why: the reader learns both what prior work contributes and where the present work differs.
+## Make limitations concrete
 
-## Make a task definition concrete
+Vague: "The method is subject to inherent limitations and cannot guarantee complete factual correctness."
 
-Weak:
+Concrete: "A frequent entity pair can occur with an incorrect relation. Co-occurrence therefore leaves some false claims unpenalized."
 
-> Multi-item tasks evaluate complex shopping.
+A useful case traces the error from input through the method to the outcome. Preserve authentic generated text; polish only the surrounding explanation.
 
-Better:
+## Edit terminal lines without changing the science
 
-> A Multi-item task asks the Buyer to construct a feasible cart and then navigate the listing-to-checkout workflow. The instruction states when a later action becomes available so that workflow discovery is not confused with hidden interface behavior.
+Measure a main-text paragraph's last line against its actual column width, including wrapfig and minipage layouts. Aim for more than half a line; normally keep at least one third. A heading, equation, table cell, or quoted output is not a prose paragraph ending.
 
-Why: define both the commercial reasoning and the interaction requirement.
+Remove an unnecessary modifier or restructure a sentence to eliminate a one-word tail. If a useful explanation is missing, add a precise consequence already supported by the method or results. Do not invent a claim, remove a meaningful qualification, or add reassurance just to fill space. Recompile because a local change can create a new tail in a wrapped paragraph.
 
-## Explain process rewards without claiming RL results
+## Preserve excitement while correcting the scope
 
-Weak:
+Too flat: "We use Wikipedia counts as a simple reward."
 
-> The trace enables RL training.
+Stronger and specific: "CorVer replaces per-sentence neural verification in the RL reward loop with a lightweight corpus-indexed signal."
 
-Better:
+The second sentence identifies a meaningful operation and its alternative. A small extractor can still identify entities; the replacement claim concerns verification in the reward loop. Introduce the reward-cost bottleneck and the connection to process supervision beyond math and code, then give the measured accuracy and complete-run timing results. Do not turn that timing into an isolated verifier speedup or invent an untested neural-verifier failure mechanism.
 
-> The trace links intermediate decisions to verified outcomes, providing process-level reward signals that a later learning pipeline could use. This paper evaluates the signals but does not train a policy.
-
-Why: an available signal is not an RL experiment.
-
-## Synchronize a changed figure
-
-Weak caption:
-
-> Overview of the framework and benchmark results.
-
-Better caption:
-
-> ACWorld connects independently controlled Buyer and Merchant agents through a shared market. The highlighted path follows one accepted offer from the agents, through platform validation, to the World update.
-
-After revising the figure, update the first reference, panel descriptions, caption, accessibility text, and any prose that describes removed visual elements.
-
-## Fix a terminal orphan line
-
-Before:
-
-> Figures 1, 2, and 3 follow one transaction from user intent to an authorized World update.
-
-If “World update” becomes a short final line, compress without deleting meaning:
-
-> Figures 1 to 3 follow one transaction from user intent to its authorized World update.
-
-Render the page after the edit. Do not optimize source length blindly.
+Readable writing and persuasive positioning work together. Retain a supported headline and compelling research story instead of replacing every strong sentence with a caveat.

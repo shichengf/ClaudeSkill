@@ -1,157 +1,68 @@
 ---
 name: academic-writing
-description: >
-  Draft and revise research-paper prose, captions, tables, figures, and appendices for ML, AI, and adjacent technical venues. Use while writing or restructuring a regular conference or journal paper, improving argument flow, translating evidence into claims, or synchronizing prose with a changed visual. Use academic-self-check when a full review is requested or a substantial revision warrants one. For surveys use survey-writing, for outlines use academic-outline, and for reviewer responses use rebuttal-craft.
+description: Draft and revise empirical ML and AI papers, including titles, abstracts, section structure, evidence narration, and experiment planning when requested. Use for readable discovery-led research prose and manuscript revisions; preserve formal proof exposition in theoretical work.
 ---
 
-# Academic Writing
+# Empirical Research Writing
 
-Write evidence-led research prose. Optimize for a reader who wants to understand the problem, the contribution, how the system works, what the experiments show, and where the evidence stops. Prefer a clear explanation over compressed terminology.
+Write a paper that lets a reader understand a problem, follow an idea, and learn from the evidence. The author's reference corpus comprises Planner Matters, CD-LAM, StructAgent, and RSIAgent. Learn their explanatory habits and choice of comparisons, not their wording, scientific claims, or domain-specific vocabulary.
 
-## Scope and judgment
+## Start with the requested job
 
-Scale the workflow to the requested edit. For a local revision, use the established context, inspect the passage and its dependencies, and edit directly. Revisit the paper-wide argument only when it changes. The guidance below is a set of decision aids, not a mandatory sequence or a required response format.
+For a local edit, read the passage and its immediate dependencies, then edit it. For a substantial rewrite, identify the central finding, mechanism, and evidence already available. For experiment planning, distinguish an untested proposal from a completed result. A writing task does not authorize new training, benchmark collection, or a mandatory paper-wide audit.
 
-Give secondary results space in proportion to their role. A baseline failure may need only a brief observation and interpretation in the main text, with diagnostic details in the appendix. Keep operational audit records out of the scientific narrative unless they change its interpretation. State material uncertainty where it matters without repeating the same caveat throughout the paper.
+Use these references as needed:
 
-## Discovery-led empirical writing
+- [Section blueprints](references/section-blueprints.md): title, abstract, introduction, preliminaries, method, results, discussion, related work, conclusion, and appendix.
+- [Prose and examples](references/writing-examples.md): sentence connections, useful verbs, terminology, paragraph rhythm, and original transfer examples.
+- [Experiment design and narration](references/experiment-design.md): choose comparisons that answer the paper's questions and organize existing evidence around them.
+- [Figures, tables, and layout](references/figure-table-review.md): align visuals with claims and inspect the rendered manuscript, including paragraph endings.
+- [Reference corpus](references/reference-corpus.md): where the patterns occur, how the four papers differ, and what should not be generalized.
 
-For empirical method papers, write to show what the authors discovered. Do not organize every paragraph as a proof that the method is reasonable. Build interest through the scientific question, the comparison, the observed pattern, and what the pattern suggests. Use a curious, explanatory voice without manufactured suspense, promotional language, or a page full of rhetorical questions.
+For a full rewrite, read the first three references and inspect the current figures and result tables. Read the corpus notes when adapting a reference-specific pattern. The guides are self-contained; unavailable source PDFs do not block later writing.
 
-Prefer concrete findings such as "We find that the simpler rule performs better" over recurring claims such as "These results validate our design." Reserve "prove" and "guarantee" for actual formal results. Keep observations, tentative explanations, and causal findings distinct. This preference does not replace proof-oriented exposition in a theoretical paper or a genuine theorem section.
+## Build the paper around a discovery
 
-## ExRSI reference style
+Find a concrete tension that the experiments resolve. A model may produce plausible outputs while missing the requested behavior. A component may matter much more than another. A simple signal may be useful despite incomplete coverage. State the actual tension in this paper rather than borrowing one from the references.
 
-Use the author's supplied ExRSI/RSIAgent paper as a prose exemplar. For paragraph drafting or substantive prose revision, read [the ExRSI prose guide](references/exrsi-prose-guide.md), which distills its sentence connections, component explanations, and result narration with original transfer examples. Lead from a concrete situation, keep subjects and actions visible, and let each sentence carry a known object into the next step. Use direct statements as well as questions; discovery-led writing does not need repeated rhetorical openings. Adopt these explanatory habits selectively while preserving the manuscript's evidence and terminology.
+Let the narrative follow what the work teaches: observed difficulty, idea, mechanism, comparison, finding, implication. This is a reasoning order, not a required six-part outline. A diagnostic may precede the method when it motivates the design; a benchmark result may precede analysis when the design is already easy to understand.
 
-## Main text for readers, appendix for audit
+Write to reveal findings rather than repeatedly justify the design. Report what changed and what that comparison tells the reader. Avoid recurring conclusions such as "validates the effectiveness and necessity of our framework." Reserve proof language for formal results. Discovery-led prose may be direct and declarative; it does not require rhetorical questions or manufactured suspense.
 
-The author's working principle is: the main text is for human readers, and the appendix should also withstand AI-assisted review. Keep the main paper fluent and easy to follow, with clear ideas, familiar words, straightforward sentences, and ordinary punctuation. Avoid complicated sentence structures, stylistic dashes, semicolon chains, and repeated defensive qualifications. State the material boundary where the reader needs it, then continue the story.
+## Make the contribution worth caring about
 
-Use the appendix for precise protocols, implementation edge cases, alternative interpretations, reproducibility details, and fuller limitations. It may be more technical and defensive when that resolves a concrete ambiguity. Keep it organized and evidence-based rather than adding speculative objections or boilerplate for its own sake. Keep details needed to interpret a headline result in the main text. Never hide a material limitation or invent an experiment, guarantee, configuration, or diagnostic to satisfy a reviewer.
+Use ambitious, evidence-backed framing. Connect the work to a major research question when the mechanism and experiments make that connection concrete. Preserve a memorable title, a sharp problem statement, and a clear account of why the contribution matters. Discovery-led writing should create interest as well as readability; it must not reduce the paper to an implementation summary.
 
-Keep a detail when it helps readers understand the method, assess a central result, or reproduce a key experiment. The appendix need not preempt every hypothetical failure mode. Omit repeated disclaimers and speculation about unobserved problems. Preserve useful explanations grounded in observed behavior or cited prior results, including baseline diagnostics that clarify the comparison.
+Distinguish unsupported claims from strong presentation. Remove the unsupported mechanism or narrow the claim to its actual operation, rather than weakening the entire story. Prefer a precise, confident claim such as "replaces per-sentence neural verification in the RL reward loop" over either an unbounded replacement claim or a timid description of "using counts as a simple reward." State supported gains directly. Keep material qualifications where readers need them, without preemptively repeating limitations in the title, abstract, and every introduction paragraph.
 
-## Writing guidance
+Respect the author's preferred positioning and title. A broad topic, memorable contrast, or compelling headline is welcome when the paper explains the connection. Do not remove it merely to sound cautious. For CorVer, retain Beyond Math and Code, the reward-cost bottleneck, and corpus-grounded process supervision. Keep full-run timing distinct from isolated verifier timing, and do not invent shared neural-verifier/policy blind spots or circularity as an established motivation.
 
-### 1. Establish the paper contract
+## Make mechanisms easy to follow
 
-For a new paper or substantial reframing, establish what is not already clear from the manuscript and conversation:
+Introduce a component through its purpose, then explain the information it receives, the operation it performs, and where its output goes. Keep a concrete object moving through successive sentences: a task becomes a subgoal, an observation becomes evidence, or a corpus count becomes a local reward.
 
-1. the paper's central problem and one-sentence answer;
-2. the two to four contribution claims;
-3. the evidence supporting each claim;
-4. the intended venue, page limit, and anonymity mode;
-5. the canonical terminology, notation, model names, and reported numbers.
+Use stable nouns and active verbs. Prefer "the index returns a count" to an abstract phrase about count acquisition. Repeat an important noun when it makes the connection clearer. Split a sentence when it asks the reader to follow several logical relationships, not merely because it exceeds an arbitrary word count.
 
-Inspect adjacent sections and source artifacts before rewriting. If a requested claim is not supported, narrow it or mark the missing evidence. Do not silently invent experiments, reviews, data sources, implementation behavior, or release status.
+Name the few distinctions that organize the paper. Introduce notation at the operation it describes, keep symbols stable, and interpret consequential equations in ordinary language. Do not turn empirical intuition into a theorem or add equations merely to rename prose.
 
-### 2. Give each section one job
+## Let the evidence determine the claim
 
-Use the section's purpose to decide what belongs there; no written planning artifact is needed for a local edit. Give every paragraph one primary function: establish a problem, explain a mechanism, report evidence, interpret a result, or connect two ideas. Merge paragraphs that merely restate one another. Split paragraphs that change purpose midway.
+Separate the behavior observed, the explanation proposed, and the intervention actually tested. An ablation supports the tested comparison; it does not establish universal necessity. A metric diagnostic may clarify why rankings differ without invalidating an entire benchmark. A configuration-level time comparison is not automatically an isolated component speedup.
 
-Consult [section-blueprints.md](references/section-blueprints.md) when a structural template would help with the abstract, introduction, method, experiments, related work, limitations, or conclusion.
+Keep central comparisons recognizable: the model, data, metric, training or inference stage, and the variable being changed. Distinguish matched comparisons from published reference scores and fresh task-specific training from transfer without retraining. State a material qualification once where it changes interpretation, rather than repeating it throughout the paper.
 
-### 3. Lead with meaning
+Preserve numerical results, formulas, actual procedures, sample sizes, citations, and established terminology during a prose edit. Do not invent experiments, seeds, metrics, prompts, released artifacts, or causal evidence. Do not imply that a sample audit is a full-dataset evaluation. Preserve a meaningful exception even if a smoother sentence could conceal it.
 
-State the idea before internal names and implementation detail. Introduce a component through what it does in the system, then name its interfaces. Avoid sentences that stack four or more nouns or responsibilities.
+## Give the main text and appendix different jobs
 
-Prefer:
+The main text carries the argument and the evidence needed to understand it. Use the appendix for exact settings, complete results, reproducible scoring rules, and a small number of informative diagnostics or cases. The appendix should withstand close reading, including AI-assisted review, without becoming a catalogue of imagined objections.
 
-> The platform mediates the market. It checks an agent's request before the shared state changes.
+Keep details that explain the method, change interpretation of a central result, or enable reproduction. Put operational history, debugging chronology, and internal audit records outside the scientific narrative unless scientifically relevant. A failed baseline can deserve a concise observed explanation, not a competing story. Do not remove a substantive limitation just to sound confident.
 
-Avoid:
+## Finish at the paper's actual size
 
-> The runtime binds identity, references, replies, idempotency, validation, settlement, and governance.
+Preserve the author's tone: familiar words, straightforward syntax, ordinary punctuation, no contractions, and no stylistic dash or semicolon chains. Prefer concrete declarative headings. Parallel lists are available when useful; neither contribution bullets nor question headings are mandatory. Keep each prose paragraph on one physical LaTeX source line where practical.
 
-When a process is easier to understand through an example, introduce one concrete actor goal and follow it through the mechanism. The example must be faithful to an implemented task or clearly labeled as illustrative.
+After substantive LaTeX edits, compile, check references and overflow, and view affected pages. In this author's main text, a paragraph's final line should normally occupy at least one third of its actual column width, preferably more than half. Eliminate one- or two-word endings by natural compression or information the reader needs. Do not pad prose, distort spacing, shrink the font, or alter scientific meaning to hit a line-width target. Respect an instruction to leave appendix layout alone.
 
-### 4. Match claim strength to evidence
-
-Use distinct language for distinct support:
-
-| Support | Appropriate language |
-| --- | --- |
-| formal result | proves, guarantees, establishes under the stated assumptions |
-| deterministic verification | verifies, reconstructs, passes the defined checks |
-| measured result | observes, achieves, is associated with |
-| qualitative inspection | suggests, is consistent with, may reflect |
-| proposed use | can support, is designed for, provides an interface for |
-
-Do not turn a capability into a demonstrated outcome. An interface for process rewards does not establish successful reinforcement learning. A multiagent environment does not by itself establish strategic multiagent evaluation. A public repository must not be described as available until it is actually accessible.
-
-### 5. Present results as discoveries
-
-Use the following questions to decide what the reader needs. Do not force each into a separate sentence or repeat setup already established:
-
-1. the question;
-2. the comparison or measurement;
-3. the minimum numbers needed to support the conclusion;
-4. the conclusion;
-5. any boundary that materially changes the interpretation, stated once in the appropriate place.
-
-Lead result paragraphs with the observed pattern and use the few numbers needed to make it concrete. Explain what is interesting about the finding. Avoid ending every paragraph with another assertion that the design is justified. Distinguish an interesting observation from a controlled causal finding.
-
-### 6. Keep terminology and notation economical
-
-Choose one term for each referent and one referent for each term. Define necessary acronyms once. Prefer a familiar phrase over a new compound term. Do not repeat acronym expansions already visible in an adjacent table.
-
-Define every equation symbol at first use. Explain why the equation is present and what later reasoning depends on it. Remove an equation that only renames a prose list.
-
-### 7. Apply the repository's prose conventions
-
-In manuscript prose:
-
-1. do not use em dashes or en dashes as stylistic punctuation;
-2. do not use contractions;
-3. avoid informal intensifiers and unsupported superlatives;
-4. avoid unordered lists inside the paper unless the venue or content clearly requires one;
-5. do not disguise a list as a sequence of bold inline labels in limitations or discussion;
-6. keep each prose paragraph on one physical source line unless syntax requires a break;
-7. prefer declarative, concrete subsection titles over abstract noun stacks or a page full of questions;
-8. avoid one-sentence paragraphs unless the sentence has a deliberate structural role.
-
-Treat 35 words as a warning threshold, not a mechanical limit. Split a long sentence when it carries more than one logical relationship.
-
-Load [writing-examples.md](references/writing-examples.md) when a passage feels dense, repetitive, abstract, or disconnected from its figure.
-
-## Figures and Tables
-
-Choose the representation by the claim:
-
-| Intended reading | Preferred form |
-| --- | --- |
-| exact lookup | table |
-| trend or comparison | chart |
-| process or responsibility | diagram |
-| concrete task structure | compact example box |
-
-If information density is high, reduce decorative color. If information density is low, color may establish grouping or emphasis. Never use color to compensate for weak hierarchy.
-
-Write a visual so it can be read at final paper size. Keep labels human-readable, align repeated elements, use one arrow grammar, and remove internal titles that duplicate the caption. A caption should state what is shown and the takeaway needed to interpret it. The nearby prose should explain the implication rather than restate every element.
-
-Load [figure-table-review.md](references/figure-table-review.md) whenever creating or substantially revising a visual.
-
-## Revision Workflows
-
-### Framing change
-
-When the paper's emphasis changes, update the title, abstract, introduction, contribution list, section openings, figure captions, results interpretation, limitations, and conclusion. Search for residual language from the old framing.
-
-### Data or model-panel change
-
-Trace a changed result to affected aggregates, claims, tables, and plots, and update those dependencies together. Recompute what depends on the change; broaden the audit only when inconsistencies or a wider revision justify it.
-
-### Figure change
-
-After changing a figure, inspect every reference to its number, panels, visual encoding, and takeaway. Remove descriptions of deleted content. Keep the figure near its first substantive discussion.
-
-### Moving material
-
-After moving content between the main paper and appendix, repair transitions, references, numbering, and claims of self-containment. Do not leave an orphan appendix artifact or a main-text promise whose evidence moved away.
-
-## Finish the Draft
-
-Compile or render the paper after substantive edits. Inspect the relevant pages, not only the log. Fix obvious overflow, overlap, stranded headings, one-word terminal lines, large unexplained whitespace, and figures separated from their analysis.
-
-Check the changed passage and its dependencies. Use `academic-self-check` for a requested full review, a substantial revision, or a concrete unresolved concern. A local edit does not require a full-paper audit or a separate agent.
+Review revised passages together with their captions and claim-bearing data. Report what changed, what was checked, and any actual unresolved issue. Do not manufacture follow-up experiments from a style review. Keep privately supplied reference PDFs local and outside version control unless the author explicitly asks otherwise.

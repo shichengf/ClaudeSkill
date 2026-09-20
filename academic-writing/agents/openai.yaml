@@ -1,4 +1,4 @@
 interface:
   display_name: "Academic Writing"
-  short_description: "Draft rigorous, readable academic manuscripts"
-  default_prompt: "Use $academic-writing to draft or revise this research paper with evidence-led claims, clear structure, and synchronized visuals."
+  short_description: "Write clear empirical papers around useful discoveries"
+  default_prompt: "Use $academic-writing to revise this research paper around its central finding, clear mechanisms, and informative comparisons."
